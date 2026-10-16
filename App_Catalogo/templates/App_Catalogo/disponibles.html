@@ -1,0 +1,22 @@
+{% extends 'App_Catalogo/base.html' %}
+
+{% block titulo %} Libros Disponibles {% endblock %}
+
+{% block contenido %}
+    <h1>Libros Disponibles</h1>
+    <p>Total de libros disponibles actualmente: <strong>{{ total }}</strong></p>
+    
+    <ul>
+    {% for libro in libros %}
+        <li>
+            <strong>{{ libro.titulo }}</strong> - Autor: {{ libro.autor }} 
+            <em>({{ libro.genero }})</em>
+        </li>
+    {% empty %}
+        <li>No hay libros disponibles en este momento.</li>
+    {% endfor %}
+    </ul>
+    
+    <br>
+    <a href="{% url 'App_Catalogo:inicio' %}">Volver al Inicio</a>
+{% endblock %}

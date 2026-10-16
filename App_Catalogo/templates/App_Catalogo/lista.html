@@ -1,0 +1,27 @@
+{% extends 'App_Catalogo/base.html' %}
+
+{% block titulo %} Catálogo Completo de Libros {% endblock %}
+
+{% block contenido %}
+    <h1>Listado General de Libros</h1>
+    
+    {% if genero %}
+        <p>Filtrando por género: <strong>{{ genero }}</strong></p>
+        <a href="{% url 'App_Catalogo:lista_libros' %}">Ver todos los libros</a>
+    {% endif %}
+
+    <ul>
+    {% for libro in libros %}
+        <li>
+            <strong>{{ libro.titulo }}</strong> por {{ libro.autor }} 
+            - Estado: {% if libro.disponible %} Disponible {% else %} Prestado {% endif %}
+            | <a href="{% url 'App_Catalogo:detalle_libro' libro.id %}">Ver detalle</a>
+        </li>
+    {% empty %}
+        <li>No se encontraron libros en esta categoría.</li>
+    {% endfor %}
+    </ul>
+
+    <br>
+    <a href="{% url 'App_Catalogo:inicio' %}">Volver al Inicio</a>
+{% endblock %}
