@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f6f4;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #198754;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333333;
+}
+
+p {
+    color: #555555;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #198754;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.boton:hover {
+    background-color: #146c43;
+}
