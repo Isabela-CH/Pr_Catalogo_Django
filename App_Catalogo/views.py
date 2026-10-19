@@ -14,15 +14,15 @@ def lista_libros(request):
         libros = [libro for libro in LIBROS if libro["genero"] == genero]
     else:
         libros = LIBROS
-    return render(request, "App_Catalogo/lista.html", {"libros": libros, "genero": genero})
-def libros_disponibles(request):
+    return render(request, "App_Catalogo/lista.html", {"libros": libros , "genero": genero, "total": len(libros)})
+def libros_no_disponibles(request):
     # Filtramos en la vista para mantener limpia la plantilla (Separación de responsabilidades)
-    libros = [libro for libro in LIBROS if libro["disponible"] == True]
+    libros = [libro for libro in LIBROS if libro["no_disponible"] == True]
     contexto = {
         "libros": libros,
         "total": len(libros)
     }
-    return render(request, "App_Catalogo/disponibles.html", contexto)
+    return render(request, "App_Catalogo/no_disponibles.html", contexto)
 
 def detalle_libro(request, libro_id):
     libro = buscar_libro(libro_id)

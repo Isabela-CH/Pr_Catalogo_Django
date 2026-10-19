@@ -1,19 +1,19 @@
 {% extends 'App_Catalogo/base.html' %}
 
-{% block titulo %} Libros Disponibles {% endblock %}
+{% block titulo %} Libros no disponibles {% endblock %}
 
 {% block contenido %}
-    <h1>Libros Disponibles</h1>
-    <p>Total de libros disponibles actualmente: <strong>{{ total }}</strong></p>
+    <h1>Libros no disponibles</h1>
+    <p>Total de libros no disponibles actualmente: <strong>{{ total }}</strong></p>
     
     <ul>
     {% for libro in libros %}
         <li>
-            <strong>{{ libro.titulo }}</strong> - Autor: {{ libro.autor }} 
+            <strong>{{ libro.titulo }}</strong>
             <em>({{ libro.genero }})</em>
         </li>
     {% empty %}
-        <li>No hay libros disponibles en este momento.</li>
+        <li>No hay libros no disponibles en este momento.</li>
     {% endfor %}
     </ul>
     
